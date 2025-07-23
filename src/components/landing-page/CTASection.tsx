@@ -1,34 +1,47 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const CTASection: React.FC = () => {
-  const handleGetStartedClick = () => {
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      heroSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-32 px-8 flex flex-col items-end gap-24">
-      <div className="flex-1 flex flex-col items-end justify-center text-right">
-        <h2 className="text-6xl leading-[1.05] font-light mb-8 max-w-4xl">
-          Craft a website<br />for free today
-        </h2>
-        <div className="flex flex-row items-center justify-end gap-3 w-full">
-          <button 
-            onClick={handleGetStartedClick}
-            className="px-6 py-3 bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors rounded"
-          >
-            Get Started
-          </button>
-          <span className="text-muted-foreground text-left ml-0">
-            No credit card required.<br /> Cancel anytime.
-          </span>
+    <section className="w-full py-24 px-6 bg-background">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="relative">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-blue-600/10 to-cyan-600/10 rounded-3xl blur-2xl" />
+          
+          <div className="relative bg-card/50 backdrop-blur border border-border rounded-3xl p-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Ready to build your next{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                masterpiece?
+              </span>
+            </h2>
+            
+            <p className="text-xl text-foreground-secondary mb-8 max-w-2xl mx-auto">
+              Join thousands of designers and developers who are already building 
+              faster with Onlook's visual development platform.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => navigate('/login')}
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors text-lg"
+              >
+                Start Building for Free
+              </button>
+              <button className="px-8 py-4 border border-border text-foreground rounded-xl font-medium hover:bg-accent transition-colors text-lg">
+                View Documentation
+              </button>
+            </div>
+            
+            <div className="mt-8 text-sm text-foreground-secondary">
+              <p>✨ No credit card required • 🚀 Deploy instantly • 💎 Premium support</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

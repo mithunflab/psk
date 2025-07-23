@@ -1,45 +1,33 @@
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const CTASection: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
-    <section className="w-full py-24 px-6 bg-background">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="relative">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-blue-600/10 to-cyan-600/10 rounded-3xl blur-2xl" />
-          
-          <div className="relative bg-card/50 backdrop-blur border border-border rounded-3xl p-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Ready to build your next{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                masterpiece?
-              </span>
-            </h2>
-            
-            <p className="text-xl text-foreground-secondary mb-8 max-w-2xl mx-auto">
-              Join thousands of designers and developers who are already building 
-              faster with Onlook's visual development platform.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => navigate('/login')}
-                className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors text-lg"
-              >
-                Start Building for Free
-              </button>
-              <button className="px-8 py-4 border border-border text-foreground rounded-xl font-medium hover:bg-accent transition-colors text-lg">
-                View Documentation
-              </button>
-            </div>
-            
-            <div className="mt-8 text-sm text-foreground-secondary">
-              <p>✨ No credit card required • 🚀 Deploy instantly • 💎 Premium support</p>
-            </div>
-          </div>
+    <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+      <div className="max-w-4xl mx-auto text-center text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Ready to transform your React development?
+        </h2>
+        <p className="text-xl mb-8 opacity-90">
+          Join thousands of developers who are already building faster with Onlook.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link 
+            to="/projects"
+            className="inline-flex items-center justify-center rounded-md bg-white text-gray-900 px-8 py-3 text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors"
+          >
+            Get Started Free
+          </Link>
+          <a 
+            href="https://github.com/onlook-dev/onlook" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md border border-white/20 px-8 py-3 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+          >
+            View on GitHub
+          </a>
         </div>
       </div>
     </section>

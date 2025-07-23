@@ -1,7 +1,10 @@
 import React from 'react';
 import { LoginForm } from '../components/auth/LoginForm';
+import { useGetBackground } from '../hooks/useGetBackground';
 
 const LoginPage: React.FC = () => {
+  const backgroundUrl = useGetBackground('login');
+
   return (
     <div className="flex h-screen w-screen">
       <div className="flex flex-col justify-between w-full h-full max-w-xl p-16 space-y-8 overflow-auto">
@@ -46,8 +49,10 @@ const LoginPage: React.FC = () => {
         </div>
       </div>
       <div className="hidden w-full lg:block md:block m-6">
-        <div
-          className="w-full h-full object-cover rounded-xl bg-gradient-to-br from-gray-800 to-gray-900"
+        <img
+          className="w-full h-full object-cover rounded-xl"
+          src={backgroundUrl}
+          alt="Onlook dunes"
           style={{ minHeight: '400px' }}
         />
       </div>
